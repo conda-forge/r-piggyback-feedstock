@@ -1,4 +1,4 @@
-{% set version = '0.1.4' %}
+{% set version = "0.1.5" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/piggyback_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/piggyback/piggyback_{{ version }}.tar.gz
-  sha256: 9e9d6d75e13f82559e5322182af557b3c79f9a6e9b0bc8c1e1b193544dcda511
+  sha256: 983b5a46792ff5f2895f36ee29afcbd7723d05fe3daefdaefaada12987e36aee
 
 build:
-  merge_build_host: True  # [win]
-  number: 2
+  merge_build_host: true  # [win]
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -53,18 +53,12 @@ test:
 about:
   home: https://github.com/ropensci/piggyback
   license: GPL-3.0-only
-  summary: Because larger (> 50 MB) data files cannot easily be committed to git, a different
-    approach is required to manage data associated with an analysis in a GitHub repository.  This
-    package provides a simple work-around by allowing larger (up to 2 GB) data files
-    to piggyback on a repository as assets attached to individual GitHub releases.  These
-    files are not handled by git in any way, but instead are uploaded, downloaded, or
-    edited directly by calls through the GitHub API. These data files can be versioned
-    manually by creating different releases.  This approach works equally well with
-    public or private repositories.  Data can be uploaded and downloaded programmatically
-    from scripts. No authentication is required to download data from public repositories.
+  summary: Because larger (> 50 MB) data files cannot easily be committed to git, a different approach is required to manage data associated with an analysis in a GitHub repository.  This package provides a simple work-around by allowing larger (up to 2 GB) data files to piggyback on a repository as assets attached to individual
+    GitHub releases.  These files are not handled by git in any way, but instead are uploaded, downloaded, or edited directly by calls through the GitHub API. These data files can be versioned manually by creating different releases.  This approach works equally well with public or private repositories.  Data can be uploaded
+    and downloaded programmatically from scripts. No authentication is required to download data from public repositories.
   license_family: GPL3
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
